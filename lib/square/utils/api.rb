@@ -64,9 +64,7 @@ module Square
       # @see https://connect.squareup.com/docs/connect#pagination
       def parse_batch_token(response_header_link)
         return if response_header_link.nil?
-        link = response_header_link.scan(/\<https:\/\/[^\?]+\?([^\>]*)\>;rel='next'/)[0][0]
-        options = CGI::parse(link)
-        options['batch_token'].first
+        response_header_link.match(/batch_token=(?<batch_token>.+)\>.+\Z/)[:batch_token]
       end
 
     end
