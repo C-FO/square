@@ -64,7 +64,7 @@ module Square
       # @see https://connect.squareup.com/docs/connect#pagination
       def parse_batch_token(response_header_link)
         return if response_header_link.nil?
-        response_header_link.match(/batch_token=(?<batch_token>.+)\>.+\Z/)[:batch_token]
+        response_header_link.match(/batch_token=(?<batch_token>.+)\>.+\z/)[:batch_token]
       end
 
     end
