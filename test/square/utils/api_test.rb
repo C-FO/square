@@ -67,7 +67,18 @@ describe Square::Utils::API do
         -> { @clean_room.send(:parse_date, 1) }.must_raise ArgumentError
       end
     end
-
   end
 
+  describe '#parse_batch_token' do
+    let(:response_header_link){
+      "Link: <https://connect.squareup.com/v1/me/payments?begin_time=2014-01-01T14%3A59%3A59%2B00%3A00&end_time=2014-12-30T20%3A59%3A59Z&batch_token=#{batch_token_str}>;rel='next'"
+    }
+    let(:batch_token_str){
+      'LoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaUtenimadminimveniamquisnostrudexeitationullamcolabo%3D%3D'
+    }
+
+    it 'returns the correct batch token string' do
+      @clean_room.send(:parse_batch_token, response_header_link).must_equal batch_token_str
+    end
+  end
 end
