@@ -33,6 +33,7 @@ module Square
 
           while response[:batch_token] && (options[:limit].nil? || (options[:limit] && options[:limit] > settlements.size))
             response = objects_from_response(Square::Connect::Settlement, :get, "/#{merchant_id}/settlements", options.merge({batch_token: response[:batch_token]}))
+            settlements += response[:objects]
           end
 
           settlements
