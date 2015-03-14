@@ -15,4 +15,4 @@ module Faraday
   end
 end
 
-Faraday.register_middleware :request, ubiregi_oauth2: -> { Faraday::Request::OAuth2 }
+Faraday.register_middleware :request, oauth2: -> { Faraday::Request::OAuth2 }

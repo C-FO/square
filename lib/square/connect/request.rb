@@ -22,10 +22,9 @@ module Square
 
         @connection = Faraday.new(Square::Connect.endpoint) do |conn|
           conn.request :oauth2, @access_token if @access_token
-          conn.request :url_encoded
           conn.request :json
-          conn.use Square::Response::RaiseError, Square::Error::ClientError
           conn.response :json, content_type: /\bjson$/
+          conn.use Square::Response::RaiseError, Square::Error::ClientError
           conn.use Square::Response::RaiseError, Square::Error::ServerError
           conn.adapter Faraday.default_adapter
         end

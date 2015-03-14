@@ -66,7 +66,6 @@ module Square
         return if response_header_link.nil?
         response_header_link.match(/batch_token=(?<batch_token>.+)\>.+\z/)[:batch_token]
       end
-
     end
   end
 end
