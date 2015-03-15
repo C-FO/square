@@ -16,11 +16,11 @@ module Square
       # @return [Hash]
       def objects_from_response(klass, request_method, path, options={})
         response = send(request_method.to_sym, path_with_version(path), options)
-        batch_token = parse_batch_token(response[:response_headers][:link])
+        next_link_params = parse_next_link_params(response[:response_headers][:link])
         objects = objects_from_array(klass, response[:body])
         {
           objects: objects,
-          batch_token: batch_token
+          next_link_params: next_link_params
         }
       end
 
@@ -62,9 +62,9 @@ module Square
       # @param response_header_link [String]
       # @return [String]
       # @see https://connect.squareup.com/docs/connect#pagination
-      def parse_batch_token(response_header_link)
+      def parse_next_link_params(response_header_link)
         return if response_header_link.nil?
-        response_header_link.match(/batch_token=(?<batch_token>.+)\>.+\z/)[:batch_token]
+        response_header_link.match(/\?(?<next_link_params>.+)\>.+\z/)[:next_link_params]
       end
 
     end

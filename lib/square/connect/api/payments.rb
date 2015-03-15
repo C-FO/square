@@ -31,8 +31,8 @@ module Square
           response = objects_from_response(Square::Connect::Payment, :get, "/#{merchant_id}/payments", options)
           payments = response[:objects]
 
-          while response[:batch_token] && (options[:limit].nil? || (options[:limit] && options[:limit] > payments.size))
-            response = objects_from_response(Square::Connect::Payment, :get, "/#{merchant_id}/payments", {batch_token: response[:batch_token]})
+          while response[:next_link_params] && (options[:limit].nil? || (options[:limit] && options[:limit] > payments.size))
+            response = objects_from_response(Square::Connect::Payment, :get, "/#{merchant_id}/payments?#{response[:next_link_params]}")
             payments += response[:objects]
           end
 
