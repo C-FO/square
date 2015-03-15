@@ -31,8 +31,8 @@ module Square
           response = objects_from_response(Square::Connect::Settlement, :get, "/#{merchant_id}/settlements", options)
           settlements = response[:objects]
 
-          while response[:batch_token] && (options[:limit].nil? || (options[:limit] && options[:limit] > settlements.size))
-            response = objects_from_response(Square::Connect::Settlement, :get, "/#{merchant_id}/settlements?#{response[:batch_token]}")
+          while response[:next_link_params] && (options[:limit].nil? || (options[:limit] && options[:limit] > settlements.size))
+            response = objects_from_response(Square::Connect::Settlement, :get, "/#{merchant_id}/settlements?#{response[:next_link_params]}")
             settlements += response[:objects]
           end
 
