@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 1.3.5'
 
   spec.add_dependency 'faraday'
-  spec.add_dependency 'faraday_middleware', '<= 0.9.0'
+  spec.add_dependency 'faraday_middleware'
   spec.add_dependency 'simple_oauth'
 
   spec.add_development_dependency 'bundler'
