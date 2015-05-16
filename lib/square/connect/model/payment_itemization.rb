@@ -4,6 +4,7 @@ require 'square/connect/model/money'
 require 'square/connect/model/payment_tax'
 require 'square/connect/model/payment_item_detail'
 require 'square/connect/model/payment_discount'
+require 'square/connect/model/payment_modifier'
 
 module Square
   module Connect
@@ -47,6 +48,13 @@ module Square
         return unless @attrs[:discounts]
         @discounts ||= @attrs[:discounts].map do |discount|
           Square::Connect::PaymentDiscount.new(discount.deep_symbolize_keys)
+        end
+      end
+
+      def modifiers
+        return unless @attrs[:modifiers]
+        @modifiers ||= @attrs[:modifiers].map do |modifier|
+          Square::Connect::PaymentModifier.new(modifier.deep_symbolize_keys)
         end
       end
 
