@@ -11,8 +11,8 @@ describe Square::Connect::Tender do
       payment_note: "A note about the tender",
       total_money: {},
       tendered_money: {},
-      change_back_money: {}
-
+      change_back_money: {},
+      refunded_money: {}
     )
   end
 
@@ -79,6 +79,12 @@ describe Square::Connect::Tender do
   describe '#change_back_money' do
     it 'returns an instance of Square::Connect::Money' do
       tender.change_back_money.must_be_instance_of Square::Connect::Money
+    end
+  end
+
+  describe '#refunded_money' do
+    it 'returns an instance of Square::Connect::Money' do
+      tender.refunded_money.must_be_instance_of Square::Connect::Money
     end
   end
 

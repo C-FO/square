@@ -8,7 +8,10 @@ describe Square::Connect::Refund do
       type: "FULL",
       created_at: "2013-01-02T00:00:00.000Z",
       processed_at: "2013-02-02T00:00:00.000Z",
-      refunded_money: {}
+      refunded_money: {},
+      refunded_additive_tax_money: {},
+      refunded_inclusive_tax_money: {},
+      refunded_processing_fee_money: {},
     )
   end
 
@@ -51,6 +54,24 @@ describe Square::Connect::Refund do
   describe '#refunded_money' do
     it 'returns an instance of Square::Connect::Money' do
       refund.refunded_money.must_be_instance_of Square::Connect::Money
+    end
+  end
+
+  describe '#refunded_additive_tax_money' do
+    it 'returns an instance of Square::Connect::Money' do
+      refund.refunded_additive_tax_money.must_be_instance_of Square::Connect::Money
+    end
+  end
+
+  describe '#refunded_inclusive_tax_money' do
+    it 'returns an instance of Square::Connect::Money' do
+      refund.refunded_inclusive_tax_money.must_be_instance_of Square::Connect::Money
+    end
+  end
+
+  describe '#refunded_processing_fee_money' do
+    it 'returns an instance of Square::Connect::Money' do
+      refund.refunded_processing_fee_money.must_be_instance_of Square::Connect::Money
     end
   end
 
