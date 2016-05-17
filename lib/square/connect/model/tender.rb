@@ -53,6 +53,11 @@ module Square
         @change_back_money ||= Square::Connect::Money.new(@attrs[:change_back_money].deep_symbolize_keys)
       end
 
+      def refunded_money
+        return unless @attrs[:refunded_money]
+        @refunded_money ||= Square::Connect::Money.new(@attrs[:refunded_money].deep_symbolize_keys)
+      end
+
     end
   end
 end
