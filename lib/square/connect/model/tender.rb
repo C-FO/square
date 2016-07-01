@@ -36,7 +36,7 @@ module Square
         'UNKNOWN'
       ]
 
-      attr_reader :type, :name, :card_brand, :pan_suffix, :entry_method, :payment_note
+      attr_reader :type, :name, :card_brand, :pan_suffix, :entry_method, :payment_note, :id
 
       def total_money
         return unless @attrs[:total_money]

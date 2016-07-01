@@ -3,6 +3,7 @@ require 'test_helper'
 describe Square::Connect::Tender do
   let(:tender) do
     Square::Connect::Tender.new(
+      id: "7OlOmDbt3PMV4CT1q0NnKQB",
       type: "CREDIT_CARD",
       card_brand: "VISA",
       name: "VISA-1234",
@@ -61,6 +62,12 @@ describe Square::Connect::Tender do
   describe '#entry_method' do
     it 'returns string value' do
       tender.entry_method.must_equal "SWIPED"
+    end
+  end
+
+  describe "#id" do
+    it 'returns string value' do
+      tender.id.must_equal "7OlOmDbt3PMV4CT1q0NnKQB"
     end
   end
 
