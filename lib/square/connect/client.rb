@@ -1,3 +1,4 @@
+require 'square/connect/api/locations'
 require 'square/connect/api/bank_accounts'
 require 'square/connect/api/merchants'
 require 'square/connect/api/payments'
@@ -9,6 +10,7 @@ require 'square/connect/request'
 module Square
   module Connect
     class Client
+      include Square::Connect::API::Locations
       include Square::Connect::API::BankAccounts
       include Square::Connect::API::Merchants
       include Square::Connect::API::Payments
