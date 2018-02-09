@@ -21,7 +21,7 @@ module Square
 
         # Returns the list of payments if authentication was successful, otherwise raises {Square::Error::Unauthorized}
         #
-        # @see https://connect.squareup.com/docs/connect/endpoints/get-payments
+        # @see https://docs.connect.squareup.com/api/connect/v1#get-payments
         # @note Authentication Required
         # @raise [Square::Error::Unauthorized] Error raised when supplied user credentials are invalid.
         # @return [Square::Connect::Payment]
