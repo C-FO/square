@@ -14,7 +14,7 @@ module Square
         # @raise [Square::Error::Unauthorized] Error raised when supplied user credentials are invalid.
         # @return [Square::Connect::Locations]
         def locations
-          response = objects_from_response(Square::Connect::Location, :get, "/me/locations")
+          response = objects_from_response(Square::Connect::Location, :get, "/me")
           response[:objects]          
         end
 
