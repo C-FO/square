@@ -13,7 +13,8 @@ describe Square::Connect::PaymentItemization do
       gross_sales_money: {},
       discount_money: {},
       taxes: [{}],
-      discounts: [{}]
+      discounts: [{}],
+      modifiers: [{}]
     )
   end
 
@@ -91,9 +92,16 @@ describe Square::Connect::PaymentItemization do
   end
 
   describe '#discounts' do
-    it 'returns an array of instances of Square::Connect::PaymentTax' do
+    it 'returns an array of instances of Square::Connect::PaymentDiscount' do
       discounts = payment_itemization.discounts
       discounts.count.must_equal discounts.count {|t| t.is_a? Square::Connect::PaymentDiscount}
+    end
+  end
+
+  describe '#modifiers' do
+    it 'returns an array of instances of Square::Connect::PaymentModifier' do
+      modifiers = payment_itemization.modifiers
+      modifiers.count.must_equal modifiers.count {|t| t.is_a? Square::Connect::PaymentModifier}
     end
   end
 
