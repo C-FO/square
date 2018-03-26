@@ -63,7 +63,13 @@ module Square
         self
       end
 
-    protected
+      # Return whether attributes are blank or not
+      # @return [Boolean]
+      def empty?
+        @attrs.nil? || @attrs.empty?
+      end
+
+      protected
 
       # @param attr [Symbol]
       # @param other [Square::Base]

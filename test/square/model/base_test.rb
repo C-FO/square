@@ -58,4 +58,19 @@ describe Square::Model::Base do
     end
   end
 
+  describe '#empty?' do
+    it 'should be false' do
+      @base.empty?.must_equal false
+    end
+
+    it 'should be true when its empty' do
+      base = Square::Model::Base.new(nil)
+      base.empty?.must_equal true
+    end
+
+    it 'should be true when its empty' do
+      base = Square::Model::Base.new({})
+      base.empty?.must_equal true
+    end
+  end
 end
