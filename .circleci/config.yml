@@ -34,12 +34,7 @@ jobs:
           name: run tests
           command: |
             mkdir $CIRCLE_ARTIFACTS
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out $CIRCLE_ARTIFACTS/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+            bundle exec rake test TESTOPTS="--ci-dir=$CIRCLE_ARTIFACTS"
 
       # collect reports
       - store_test_results:
