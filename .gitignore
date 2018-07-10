@@ -2,7 +2,6 @@
 *.rbc
 .bundle
 .yardoc
-Gemfile.lock
 vendor/bundle
 coverage/*
 doc/*

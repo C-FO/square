@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'rspec_junit_formatter'
 end
