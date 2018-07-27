@@ -3,7 +3,9 @@ require 'spec_helper'
 describe Square::Response::RaiseError do
 
   describe '#on_complete' do
-    subject { described_class.new({}, Square::Error::Base).on_complete(status: http_status) }
+    let(:env) { double(Faraday::Env) }
+    before { allow(env).to receive(:status).and_return(http_status) }
+    subject { described_class.new({}, Square::Error::Base).on_complete(env) }
 
     [
       [400, Square::Error::BadRequest],
