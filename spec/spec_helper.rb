@@ -8,6 +8,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'square'
 require 'webmock'
 require 'pry'
+require 'securerandom'
 
 include WebMock::API
 
@@ -64,6 +65,9 @@ end
 
 RSpec.configure do |config|
   config.expose_dsl_globally = true
+  config.define_derived_metadata do |m|
+    m[:aggregate_failures] = true unless m.key?(:aggregate_failures)
+  end
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
