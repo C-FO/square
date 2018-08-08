@@ -3,13 +3,11 @@ require 'spec_helper'
 describe Square::Connect::Device do
   let(:json) { fixture('device.json') }
   let(:class_attrs) { JSON.load(json).symbolize_keys }
-  let(:device) { described_class.new(class_attrs) }
 
   describe '.superclass' do
     subject { described_class.superclass }
-    it 'returns Square::Model::Identity' do
-      is_expected.to eq(Square::Model::Identity)
-    end
+
+    it { is_expected.to eq(Square::Model::Identity) }
   end
 
   describe '.from_response' do
@@ -23,6 +21,8 @@ describe Square::Connect::Device do
   end
 
   describe '#name' do
-    it { expect(device.name).to eq('AV76FTX15L') }
+    subject { described_class.new(class_attrs) }
+
+    it { expect(subject.name).to eq('AV76FTX15L') }
   end
 end

@@ -3,10 +3,9 @@ require 'spec_helper'
 describe Square::Connect::BankAccount do
   let(:json) { fixture('bank_account.json') }
   let(:class_attrs) { JSON.load(json).symbolize_keys }
-  let(:bank_account) { described_class.new(class_attrs) }
   describe '.superclass' do
     context 'returns Square::Model::Identity' do
-      subject { bank_account.class.superclass }
+      subject { described_class.superclass }
 
       it { is_expected.to eq(Square::Model::Identity) }
     end
@@ -20,8 +19,9 @@ describe Square::Connect::BankAccount do
     end
   end
   describe 'Correctly Object' do
+    subject { described_class.new(class_attrs) }
     it do
-      expect(bank_account).to have_attributes(
+      is_expected.to have_attributes(
         merchant_id: 'AV76FTXT15L',
         bank_name: 'Chase',
         name: 'Dave\'s Business Account',
