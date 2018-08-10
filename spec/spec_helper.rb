@@ -14,7 +14,10 @@ require 'square/core_ext/hash'
 
 include WebMock::API
 
-WebMock.disable_net_connect!(allow: 'coveralls.io')
+if ENV['CI']
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 def endpoint_for(api_name)
   case api_name
