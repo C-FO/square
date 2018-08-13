@@ -14,9 +14,8 @@ module Square
     class RaiseError < Faraday::Response::Middleware
 
       def on_complete(env)
-        status_code = env[:status].to_i
-        error_class = @klass.errors[status_code]
-        raise error_class.from_response(env) if error_class
+        err = classify_error(env.status)
+        raise err if err
       end
 
       def initialize(app, klass)
@@ -24,6 +23,30 @@ module Square
         super(app)
       end
 
+      private
+
+      def classify_error(http_status)
+        case http_status
+        when 400
+          Square::Error::BadRequest
+        when 401
+          Square::Error::Unauthorized
+        when 403
+          Square::Error::Forbidden
+        when 404
+          Square::Error::NotFound
+        when 406
+          Square::Error::NotAcceptable
+        when 500
+          Square::Error::InternalServerError
+        when 502
+          Square::Error::BadGateway
+        when 503
+          Square::Error::ServiceUnavailable
+        when 504
+          Square::Error::GatewayTimeout
+        end
+      end
     end
   end
 end

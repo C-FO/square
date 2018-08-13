@@ -6,3 +6,7 @@ Gemfile.lock
 vendor/bundle
 coverage/*
 doc/*
+
+public/
+.idea/
+.ruby-version

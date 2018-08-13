@@ -29,7 +29,9 @@
       "nickname": "Milkshakes"
     },
     "market_url": "https://mkt.com/squared",
-    "account_capabilities": ["CREDIT_CARD_PROCESSING"]
+    "account_capabilities": [
+      "CREDIT_CARD_PROCESSING"
+    ]
   },
   {
     "id": "JGHJ0344",
@@ -61,6 +63,8 @@
       "nickname": "Milkshakes"
     },
     "market_url": "https://mkt.com/squared",
-    "account_capabilities": ["CREDIT_CARD_PROCESSING"]
+    "account_capabilities": [
+      "CREDIT_CARD_PROCESSING"
+    ]
   }
 ]
