@@ -25,6 +25,7 @@ jobs:
                           --format RspecJunitFormatter \
                           --out $CIRCLE_ARTIFACTS/rspec.xml \
                           $TEST_FILES
+
         after_success:
           - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 
@@ -34,3 +35,4 @@ jobs:
     - store_artifacts:
         path: $CIRCLE_ARTIFACTS
         destination: test-results
+
