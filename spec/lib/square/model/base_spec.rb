@@ -3,7 +3,10 @@ require 'spec_helper'
 describe Square::Model::Base do
   let(:base) { described_class.new(id: id, name: name) }
   let(:id) { SecureRandom.random_number(1000000) }
-  let(:name) { SecureRandom.alphanumeric(10) }
+  let(:name) do
+    return SecureRandom.alphanumeric(10) if RUBY_VERSION.to_f >= 2.5
+    SecureRandom.hex(6)
+  end
 
   describe '.attr_reader' do
     before { described_class.attr_reader :name }

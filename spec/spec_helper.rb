@@ -7,8 +7,10 @@ end
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'square'
 require 'webmock'
+require 'webmock/rspec'
 require 'pry'
 require 'securerandom'
+require 'square/core_ext/hash'
 
 include WebMock::API
 
