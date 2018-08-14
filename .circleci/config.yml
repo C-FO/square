@@ -22,7 +22,6 @@ jobs:
                           --format RspecJunitFormatter \
                           --out $CIRCLE_ARTIFACTS/rspec.xml \
                           $TEST_FILES
-          bundle exec rake test TESTOPTS="--ci-dir=$CIRCLE_ARTIFACTS"
     # collect reports
     - store_test_results:
         path: $CIRCLE_ARTIFACTS
