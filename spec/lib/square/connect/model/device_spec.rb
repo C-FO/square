@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Square::Connect::Device do
   let(:json) { fixture('device.json') }
-  let(:class_attrs) { JSON.load(json).symbolize_keys }
+  let(:class_attrs) { JSON.load(json).deep_symbolize_keys }
 
   describe '.superclass' do
     subject { described_class.superclass }

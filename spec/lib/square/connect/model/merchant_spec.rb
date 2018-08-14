@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Square::Connect::Merchant do
   let(:json) { fixture('merchant.json') }
-  let(:class_attrs) { JSON.load(json).symbolize_keys }
+  let(:class_attrs) { JSON.load(json).deep_symbolize_keys }
   let(:instance) { described_class.new(class_attrs) }
 
   describe '.superclass' do

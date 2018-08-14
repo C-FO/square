@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Square::Connect::BankAccount do
   let(:json) { fixture('bank_account.json') }
-  let(:class_attrs) { JSON.load(json).symbolize_keys }
+  let(:class_attrs) { JSON.load(json).deep_symbolize_keys }
   describe '.superclass' do
     context 'returns Square::Model::Identity' do
       subject { described_class.superclass }

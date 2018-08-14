@@ -10,6 +10,7 @@ require 'webmock'
 require 'webmock/rspec'
 require 'pry'
 require 'securerandom'
+require 'square/core_ext/hash'
 
 include WebMock::API
 
