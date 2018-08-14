@@ -11,14 +11,12 @@ Gem::Specification.new do |spec|
   spec.summary       = spec.description
   spec.homepage      = 'https://github.com/C-FO/square'
   spec.license       = 'MIT'
-  spec.files         = %w{LICENSE.txt README.md Rakefile square.gemspec}
-  spec.files         += Dir.glob('lib/**/*.rb')
-  spec.files         += Dir.glob('test/**/*')
-  spec.test_files    = Dir.glob('test/**/*')
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.bindir        = 'exe'
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 1.9.2'
-  spec.required_rubygems_version = '>= 1.3.5'
+  spec.required_ruby_version = '>= 2.3.4'
 
   spec.add_dependency 'faraday'
   spec.add_dependency 'faraday_middleware'
@@ -28,9 +26,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'redcarpet'
   spec.add_development_dependency 'yard'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'minitest'
+  spec.add_development_dependency 'pry-byebug', '~> 3.4'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'rspec', '~> 3.5'
+  spec.add_development_dependency 'rspec_junit_formatter'
+  spec.add_development_dependency 'codecov'
 end
