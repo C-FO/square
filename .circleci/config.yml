@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: circleci/ruby:2.3.4-node-browsers
+    environment:
+    - CIRCLE_ARTIFACTS: "/tmp/test-results"
+    working_directory: ~/repo
+    steps:
+    - checkout
+    - run:
+        name: install dependencies
+        command: |
+          bundle install --jobs=4 --quiet --retry=3 --path vendor/bundle
+    # run tests!
+    - run:
+        name: run tests
+        command: |
+          mkdir $CIRCLE_ARTIFACTS
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+          bundle exec rspec --format progress \
+                          --format RspecJunitFormatter \
+                          --out $CIRCLE_ARTIFACTS/rspec.xml \
+                          $TEST_FILES
+          bundle exec rake test TESTOPTS="--ci-dir=$CIRCLE_ARTIFACTS"
+    # collect reports
+    - store_test_results:
+        path: $CIRCLE_ARTIFACTS
+    - store_artifacts:
+        path: $CIRCLE_ARTIFACTS
+        destination: test-results
