@@ -1,4 +1,4 @@
-require 'square/core_ext/hash'
+require 'active_support/core_ext/hash'
 require 'date'
 
 module Square

@@ -1,5 +1,5 @@
 require 'square/model/identity'
-require 'square/core_ext/hash'
+require 'active_support/core_ext/hash'
 require 'square/connect/model/money'
 
 module Square
