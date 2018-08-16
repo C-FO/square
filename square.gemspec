@@ -5,8 +5,8 @@ require 'square/version'
 Gem::Specification.new do |spec|
   spec.name          = 'square'
   spec.version       = Square::Version
-  spec.authors       = ['Ryu Yokoji']
-  spec.email         = ['yokoji@freee.co.jp']
+  spec.authors       = ['Ryu Yokoji', 'Ryota Ikezawa']
+  spec.email         = ['yokoji@freee.co.jp', 'ikezawa-ryota@freee.co.jp']
   spec.description   = %q{A Ruby interface to the Square API.}
   spec.summary       = spec.description
   spec.homepage      = 'https://github.com/C-FO/square'
