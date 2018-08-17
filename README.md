@@ -9,15 +9,11 @@ A Ruby interface to the Square API.
 
 Add this line to your application's Gemfile:
 
-    gem 'square'
+    gem 'square', git: 'https://github.com/C-FO/square'
 
 And then execute:
 
     $ bundle install --path vendor/bundle
-
-Or install it yourself as:
-
-    $ gem install square
 
 ## Quick Start Guide (Square Connect API)
 
@@ -26,6 +22,9 @@ Or install it yourself as:
 **Instantiate a Square::Connect::Client for each user's access**
 
 ```ruby
+# Load the gem
+require 'square'
+
 client = Square::Connect::Client.new(
   access_token: "Your access token"
 )
