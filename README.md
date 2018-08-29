@@ -1,3 +1,6 @@
+Square
+===
+
 [![CircleCI](https://circleci.com/gh/C-FO/square.svg?style=svg&circle-token=1087bf6a91644baaf16a3b2878c77e0299f691fa)][CircleCI]
 [![codecov](https://codecov.io/gh/C-FO/square/branch/master/graph/badge.svg)][codecov]
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)][license]
@@ -5,8 +8,6 @@
 [license]: https://github.com/C-FO/square/blob/master/LICENSE
 [codecov]: https://codecov.io/gh/C-FO/square
 [CircleCI]: https://circleci.com/gh/C-FO/square
-
-# The Square Ruby Gem
 
 A Ruby interface to the Square API.
 
