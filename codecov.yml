@@ -1,0 +1,11 @@
+coverage:
+  range: "90...100"
+
+  status:
+    project:
+      default:
+        target: 90%
+    patch:
+      default:
+        paths:
+          - lib
