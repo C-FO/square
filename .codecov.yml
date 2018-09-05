@@ -1,10 +1,5 @@
 coverage:
   status:
-    project:
-      default:
-        target: 90%
-        paths:
-          - lib
     patch:
       default:
         paths:
