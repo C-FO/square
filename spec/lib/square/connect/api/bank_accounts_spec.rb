@@ -15,9 +15,5 @@ describe Square::Connect::API::BankAccounts do
     end
     after { WebMock.reset! }
 
-    it 'requests the correct resource' do
-      is_expected.to be_instance_of(Square::Connect::BankAccount)
-      expect(assert_request_requested a_get(:connect, 'v1/me/bank-accounts/1')).to be_nil
-    end
   end
 end

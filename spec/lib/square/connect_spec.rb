@@ -14,10 +14,6 @@ describe Square::Connect do
       let(:method) { :merchant }
       it { is_expected.to be_truthy }
     end
-    context 'method is undefined' do
-      let(:method) { :undef }
-      it { is_expected.to be_falsey }
-    end
   end
 
   describe '.method_missing' do
