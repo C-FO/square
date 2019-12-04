@@ -55,6 +55,8 @@ describe Square::Connect::Refund do
       expect(refund.refunded_tip_money).to be_instance_of(Square::Connect::Money)
       expect(refund.refunded_discount_money).to be_instance_of(Square::Connect::Money)
       expect(refund.refunded_processing_fee_money).to be_instance_of(Square::Connect::Money)
+      expect(refund.refunded_inclusive_tax).to all(be_instance_of(Square::Connect::PaymentTax))
+      expect(refund.refunded_additive_tax).to all(be_instance_of(Square::Connect::PaymentTax))
     end
   end
 end
