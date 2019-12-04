@@ -1,7 +1,7 @@
 module Square
   class Version
     MAJOR = 0 unless defined? Square::Version::MAJOR
-    MINOR = 4 unless defined? Square::Version::MINOR
+    MINOR = 5 unless defined? Square::Version::MINOR
     PATCH = 0 unless defined? Square::Version::PATCH
     PRE = nil unless defined? Square::Version::PRE
 
