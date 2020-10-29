@@ -25,6 +25,7 @@ jobs:
                           --format RspecJunitFormatter \
                           --out $CIRCLE_ARTIFACTS/rspec.xml \
                           $TEST_FILES
+          bundle exec rake coverage:push
 
     # collect reports
     - store_test_results:
