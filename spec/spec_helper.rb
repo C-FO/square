@@ -1,5 +1,4 @@
 require 'simplecov'
-SimpleCov.coverage_dir(File.join(ENV.fetch('CIRCLE_ARTIFACTS', 'public'), 'coverage'))
 SimpleCov.start do
   %w[vendor/ spec/].each { |dir| add_filter(dir) }
 end
@@ -8,7 +7,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'square'
 require 'webmock'
 require 'webmock/rspec'
-require 'pry'
+#require 'pry'
 require 'securerandom'
 require 'active_support/core_ext/hash'
 
