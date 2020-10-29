@@ -27,7 +27,7 @@ jobs:
                           $TEST_FILES
 
         after_success:
-          - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+          bundle exec coveralls push
 
     # collect reports
     - store_test_results:
