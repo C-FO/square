@@ -16,7 +16,7 @@ include WebMock::API
 if ENV['COVERALLS_REPO_TOKEN']
   # Add coveralls setting
   require 'coveralls'
-  Coveralls.wear_merged!('rails')
+  Coveralls.wear!
 end
 
 def endpoint_for(api_name)
