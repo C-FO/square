@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.3.4'
 
   spec.add_dependency 'activesupport'
-  spec.add_dependency 'faraday', '~> 0.17'
+  spec.add_dependency 'faraday', '~> 0.12.2'
   spec.add_dependency 'faraday_middleware'
   spec.add_dependency 'simple_oauth'
 
