@@ -6,6 +6,7 @@ require 'square/connect/model/payment_tax'
 require 'square/connect/model/tender'
 require 'square/connect/model/refund'
 require 'square/connect/model/payment_itemization'
+require 'square/connect/model/payment_surcharge'
 require 'time'
 
 module Square
@@ -66,6 +67,18 @@ module Square
       def refunded_money
         return unless @attrs[:refunded_money]
         @refunded_money ||= Square::Connect::Money.new(@attrs[:refunded_money].deep_symbolize_keys)
+      end
+
+      def surcharge_money
+        return unless @attrs[:surcharge_money]
+        @refunded_money ||= Square::Connect::Money.new(@attrs[:surcharge_money].deep_symbolize_keys)
+      end
+
+      def surcharges
+        return unless @attrs[:surcharges]
+        @surcharges ||= @attrs[:surcharges].map do |surcharge|
+          Square::Connect::PaymentSurcharge.new(surcharge.deep_symbolize_keys)
+        end
       end
 
       def inclusive_tax
