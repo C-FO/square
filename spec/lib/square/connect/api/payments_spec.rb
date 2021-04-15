@@ -17,10 +17,12 @@ describe Square::Connect::API::Payments do
     let(:file) { 'payment.json' }
     let(:path) { 'v1/me/payments/1' }
 
-
     it do
       is_expected.to be_instance_of(Square::Connect::Payment)
       expect(assert_request_requested a_get(:connect, path)).to be_nil
+      expect(subject.inclusive_tax_money.amount).to eq 20
+      expect(subject.surcharges.size).to eq 1
+      expect(subject.surcharges[0].name).to eq 'Shipping'
     end
   end
 
