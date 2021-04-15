@@ -21,8 +21,27 @@ describe Square::Connect::API::Payments do
       is_expected.to be_instance_of(Square::Connect::Payment)
       expect(assert_request_requested a_get(:connect, path)).to be_nil
       expect(subject.inclusive_tax_money.amount).to eq 20
+      expect(subject.additive_tax_money.amount).to eq 30
+      expect(subject.tax_money.amount).to eq 50
+      expect(subject.tip_money.amount).to eq 100
+      expect(subject.discount_money.amount).to eq 0
+      expect(subject.net_total_money.amount).to eq 5981
+      expect(subject.swedish_rounding_money.amount).to eq 0
+      expect(subject.gross_sales_money.amount).to eq 100
+      expect(subject.net_sales_money.amount).to eq 100
+
       expect(subject.surcharges.size).to eq 1
       expect(subject.surcharges[0].name).to eq 'Shipping'
+      expect(subject.surcharges[0].amount_money.amount).to eq 100
+      expect(subject.surcharges[0].applied_money.amount).to eq 100
+      expect(subject.surcharges[0].taxes).to be_empty
+      expect(subject.surcharge_money.amount).to eq 100
+
+      expect(subject.inclusive_tax.size).to eq 1
+      expect(subject.additive_tax.size).to eq 1
+      expect(subject.tender.size).to eq 1
+      expect(subject.refunds.size).to eq 0
+      expect(subject.itemizations.size).to eq 1
     end
   end
 

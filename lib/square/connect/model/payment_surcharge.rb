@@ -11,7 +11,7 @@ module Square
 
       def amount_money
         return unless @attrs[:amount_money]
-        @applied_money ||= Square::Connect::Money.new(@attrs[:amount_money].deep_symbolize_keys)
+        @amount_money ||= Square::Connect::Money.new(@attrs[:amount_money].deep_symbolize_keys)
       end
 
       def applied_money

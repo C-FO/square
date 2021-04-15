@@ -69,6 +69,21 @@ module Square
         @refunded_money ||= Square::Connect::Money.new(@attrs[:refunded_money].deep_symbolize_keys)
       end
 
+      def swedish_rounding_money
+        return unless @attrs[:swedish_rounding_money]
+        @swedish_rounding_money ||= Square::Connect::Money.new(@attrs[:swedish_rounding_money].deep_symbolize_keys)
+      end
+
+      def gross_sales_money
+        return unless @attrs[:gross_sales_money]
+        @gross_sales_money ||= Square::Connect::Money.new(@attrs[:gross_sales_money].deep_symbolize_keys)
+      end
+
+      def net_sales_money
+        return unless @attrs[:net_sales_money]
+        @net_sales_money ||= Square::Connect::Money.new(@attrs[:net_sales_money].deep_symbolize_keys)
+      end
+
       def surcharge_money
         return unless @attrs[:surcharge_money]
         @refunded_money ||= Square::Connect::Money.new(@attrs[:surcharge_money].deep_symbolize_keys)
