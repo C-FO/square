@@ -26,9 +26,6 @@ jobs:
                           --out $CIRCLE_ARTIFACTS/rspec.xml \
                           $TEST_FILES
 
-        after_success:
-          - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-
     # collect reports
     - store_test_results:
         path: $CIRCLE_ARTIFACTS
