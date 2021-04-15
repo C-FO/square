@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/ruby:2.3.4-node-browsers
+    - image: circleci/ruby:2.5.8-node-browsers
     environment:
     - CIRCLE_ARTIFACTS: "/tmp/test-results"
     working_directory: ~/repo
@@ -25,9 +25,6 @@ jobs:
                           --format RspecJunitFormatter \
                           --out $CIRCLE_ARTIFACTS/rspec.xml \
                           $TEST_FILES
-
-        after_success:
-          - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 
     # collect reports
     - store_test_results:

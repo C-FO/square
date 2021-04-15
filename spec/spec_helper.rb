@@ -14,9 +14,10 @@ require 'active_support/core_ext/hash'
 
 include WebMock::API
 
-if ENV['CI']
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['COVERALLS_REPO_TOKEN']
+  # Add coveralls setting
+  require 'coveralls'
+  Coveralls.wear!
 end
 
 def endpoint_for(api_name)
