@@ -43,6 +43,38 @@
     "amount": 0,
     "currency_code": "USD"
   },
+  "swedish_rounding_money": {
+    "amount": 0,
+    "currency_code": "JPY"
+  },
+  "gross_sales_money": {
+    "amount": 100,
+    "currency_code": "USD"
+  },
+  "net_sales_money": {
+    "amount": 100,
+    "currency_code": "USD"
+  },
+  "surcharge_money": {
+    "amount": 100,
+    "currency_code": "USD"
+  },
+  "surcharges": [
+    {
+      "name": "Shipping",
+      "applied_money": {
+        "amount": 100,
+        "currency_code": "USD"
+      },
+      "amount_money": {
+        "amount": 100,
+        "currency_code": "USD"
+      },
+      "type": "CUSTOM",
+      "taxes": [],
+      "surcharge_id": "custom-surcharge:xxx"
+    }
+  ],
   "inclusive_tax": [
     {
       "inclusion_type": "INCLUSIVE",
